@@ -1,4 +1,4 @@
-package com.example.padsou
+package com.example.padsou.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,10 +10,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.padsou.ui.components.HeaderOneOffer
 import com.example.padsou.ui.theme.PadsouTheme
+import com.example.padsou.ui.components.HeaderOneOffer
 
-class MainActivity : ComponentActivity() {
+class OneOffer : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -23,7 +23,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
+
                     HeaderOneOffer(img = "https://media-cdn.tripadvisor.com/media/photo-w/13/c1/2c/b6/taco-bell.jpg", Data = "Abonnement 1 an", SubData = "2 mois offerts")
+
                 }
             }
         }
@@ -32,3 +34,11 @@ class MainActivity : ComponentActivity() {
 
 
 
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    PadsouTheme {
+        HeaderOneOffer(img = "https://media-cdn.tripadvisor.com/media/photo-w/13/c1/2c/b6/taco-bell.jpg", Data = "Abonnement 1 an", SubData = "2 mois offerts")
+    }
+}
