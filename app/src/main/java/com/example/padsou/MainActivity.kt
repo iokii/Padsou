@@ -13,9 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.padsou.ui.components.Form
+import com.example.padsou.ui.components.*
 //import com.example.padsou.ui.components.Register
-import com.example.padsou.ui.components.TexteEnHaut
 import com.example.padsou.ui.theme.PadsouTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,18 +27,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Column(
-                        modifier = Modifier
-                        .fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally) {
-                        TexteEnHaut()
-                        Form()
+                    Column {
+                        MainNav()
                     }
                 }
             }
         }
     }
-<<<<<<< Updated upstream
 }
 
 @Composable
@@ -53,6 +47,4 @@ fun DefaultPreview() {
     PadsouTheme {
         Greeting("Android")
     }
-=======
->>>>>>> Stashed changes
 }
