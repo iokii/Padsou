@@ -14,9 +14,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.padsou.models.Offer
 
 @Composable
-fun HeaderOneOffer(img : String,Data:String,SubData:String){
+fun HeaderOneOffer(offer: Offer){
 
     Box(
         Modifier
@@ -25,8 +26,8 @@ fun HeaderOneOffer(img : String,Data:String,SubData:String){
 
     ){
         
-        AsyncImage(model = img,
-            contentDescription = "Boop",
+        AsyncImage(model = offer.img,
+            contentDescription = "image de fond",
             Modifier
                 .height(200.dp)
                 .clip(
@@ -36,6 +37,11 @@ fun HeaderOneOffer(img : String,Data:String,SubData:String){
 
         )
         Box(modifier = Modifier
+            .height(200.dp)
+            .fillMaxWidth()
+            .clip(
+                RoundedCornerShape(bottomStart = 25.dp, bottomEnd = 25.dp)
+            )
             .background(
                 brush = Brush.horizontalGradient(
                     colors = listOf(
@@ -46,11 +52,14 @@ fun HeaderOneOffer(img : String,Data:String,SubData:String){
                     endX = 500f
                 )
             )
-            .height(200.dp)
-            .fillMaxWidth())
-        Column() {
-            Text(text = Data,Modifier.padding(top = 60.dp, start = 100.dp), Color.White, fontSize = 25.sp, fontWeight = FontWeight.Bold)
-            Text(text = SubData, Modifier.padding(top = 0.dp, start = 100.dp), Color.White, fontSize = 15.sp, fontWeight = FontWeight.Bold)
+
+        )
+
+        Column(
+            Modifier.padding(top = 60.dp,start=80.dp)
+        ) {
+            Text(text = offer.label,Modifier, Color.White, fontSize = 25.sp, fontWeight = FontWeight.Bold)
+            Text(text = offer.souslabel,Modifier, Color.White, fontSize = 15.sp, fontWeight = FontWeight.Bold)
         }
 
     }
