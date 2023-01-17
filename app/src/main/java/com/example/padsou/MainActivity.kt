@@ -28,36 +28,6 @@ import com.example.padsou.ui.theme.PadsouTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        var TacoBell = Offer(
-            "Vente Privé TacoBell",
-            "Ticket d'entrée",
-            listOf(Comment(
-                User(
-                    "Fitz",
-                    "https://pbs.twimg.com/profile_images/1574997475697500161/AppQQjmp_400x400.jpg",
-                    "Fitz@mushoku.net",
-                    "lePluBo"
-                ),
-                3,
-                "Sah Tacobell en France ça fait plaisir oulalalalalalalalalalalaalalalalalalalaalalalalalalalaalalal j'ai faim ça rasse j'ai hate de manger mes coquilettes au poulet en sah les pates directemment en intravaineuse"
-            ), Comment(
-                User(
-                    "Fitz",
-                    "https://pbs.twimg.com/profile_images/1574997475697500161/AppQQjmp_400x400.jpg",
-                    "Fitz@mushoku.net",
-                    "lePluBo"
-                ),
-                5,
-                "boop"
-            )
-            ),
-            666,
-            "https://media-cdn.tripadvisor.com/media/photo-w/13/c1/2c/b6/taco-bell.jpg",
-            Filter.COURSES
-        )
-
-
-
         super.onCreate(savedInstanceState)
         setContent {
             PadsouTheme {
@@ -67,16 +37,7 @@ class MainActivity : ComponentActivity() {
                         .fillMaxSize()
                         .verticalScroll(rememberScrollState()),
                     color = Color(0xFFEBE7FF)
-
                 ) {
-                    Column() {
-                        HeaderOneOffer(TacoBell)
-                        for (comment in TacoBell.listComment) {
-                            commentOneOffer(comment)
-                        }
-                        Text("TESTÉE PAR ${TacoBell.nbrTested} GALÉRIENS",Modifier.padding(top = 20.dp, start = 70.dp), Color.Black, fontWeight = FontWeight.Bold, fontSize = 20.sp)
-                    }
-
 
                 }
             }
