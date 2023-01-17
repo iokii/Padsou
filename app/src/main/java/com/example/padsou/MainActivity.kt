@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.padsou.models.Comment
+import com.example.padsou.models.Filter
 import com.example.padsou.models.Offer
 import com.example.padsou.models.User
 import com.example.padsou.ui.components.*
@@ -51,7 +52,8 @@ class MainActivity : ComponentActivity() {
             )
             ),
             666,
-            "https://media-cdn.tripadvisor.com/media/photo-w/13/c1/2c/b6/taco-bell.jpg"
+            "https://media-cdn.tripadvisor.com/media/photo-w/13/c1/2c/b6/taco-bell.jpg",
+            Filter.COURSES
         )
 
 
