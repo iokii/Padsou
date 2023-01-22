@@ -68,16 +68,18 @@ class MainActivity : ComponentActivity() {
                             Column(Modifier.padding(start = 110.dp),
                                     horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                                Text(text = "Email :", fontSize = 25.sp, fontWeight = FontWeight.Bold)
-                                Text(text = user.email, fontSize = 25.sp)
-                                Text(text = "Mot de Passe :", fontSize = 25.sp, fontWeight = FontWeight.Bold)
-                                Text(text = user.password, fontSize = 25.sp)
-                                Text(text = "Offres abonnés :", fontSize=25.sp, fontWeight = FontWeight.Bold)
+                                Text(text = "Email :", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                                Text(text = user.email, fontSize = 20.sp)
+                                Text(text = "Mot de Passe :", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                                Text(text = user.password, fontSize = 20.sp)
+                                Text(text = "Offres abonnés :", fontSize=20.sp, fontWeight = FontWeight.Bold)
                                 //Do show offres abonné
 
 
                             }
+
                         }
+                        //Navigation
 
                     }
 
