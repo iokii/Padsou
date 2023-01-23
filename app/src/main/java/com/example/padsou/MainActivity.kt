@@ -42,32 +42,36 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Color(0xFF5F67EA)
                 ) {
-                    Column(Modifier.padding(top = 70.dp),
+                    Column(Modifier.padding(top = 55.dp),
                         verticalArrangement = Arrangement.spacedBy(15.dp)
                     ) {
-                        AsyncImage(model = user.pdp,
-                            contentDescription = "Image de profile",
-                            modifier = Modifier
-                                .padding(start = 145.dp)
-                                .clip(CircleShape)
-                                .size(125.dp)
-                        )
-                        Text(user.name, fontSize = 25.sp,
-                            fontWeight = FontWeight.Bold,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier.padding(start = 185.dp)
-                        )
-
+                        Column(modifier = Modifier
+                            .padding(start = 145.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(10.dp)
+                        ) {
+                            AsyncImage(model = user.pdp,
+                                contentDescription = "Image de profile",
+                                modifier = Modifier
+                                    .clip(CircleShape)
+                                    .size(125.dp)
+                            )
+                            Text(user.name ,fontSize = 25.sp,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center,
+                                color = Color.White
+                            )
+                        }
                         Box(
-                            Modifier
+                            modifier = Modifier
                                 .fillMaxWidth()
                                 .height(500.dp)
                                 .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
-                                .background(Color.White)
+                                .background(Color.White),
                             ) {
-                            Column(Modifier.padding(start = 110.dp),
-                                    horizontalAlignment = Alignment.CenterHorizontally,
-                                verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                            Column(Modifier.padding(start = 130.dp, top = 40.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.spacedBy(17.dp)) {
                                 Text(text = "Email :", fontSize = 20.sp, fontWeight = FontWeight.Bold)
                                 Text(text = user.email, fontSize = 20.sp)
                                 Text(text = "Mot de Passe :", fontSize = 20.sp, fontWeight = FontWeight.Bold)
