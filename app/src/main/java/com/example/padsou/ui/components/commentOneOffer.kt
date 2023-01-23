@@ -15,6 +15,7 @@ import coil.compose.AsyncImage
 import com.example.padsou.models.Comment
 import com.example.padsou.models.User
 import com.example.padsou.ui.components.*
+import com.example.padsou.ui.theme.integralcf
 
 @Composable
 fun commentOneOffer(comment : Comment){
@@ -51,7 +52,9 @@ fun commentOneOffer(comment : Comment){
             }
 
             Text(text = comment.desc,
-                Modifier
+                fontWeight = FontWeight.Normal,
+                fontFamily = integralcf,
+                modifier = Modifier
                     .padding(start = 20.dp, bottom = 25.dp, end = 20.dp)
             )
             

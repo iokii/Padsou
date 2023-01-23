@@ -1,7 +1,6 @@
-package com.example.padsou.ui.components
+package com.example.padsou.modules.auth
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -13,17 +12,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun FormRegister() {
+fun FormLogin() {
     var mail by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var secondPassword by remember { mutableStateOf("") }
-    Column(verticalArrangement = Arrangement.SpaceBetween, horizontalAlignment = Alignment.CenterHorizontally) {
+
+    Column(horizontalAlignment = Alignment.CenterHorizontally,verticalArrangement = Arrangement.spacedBy(15.dp)) {
         TextField(
             value = mail,
             onValueChange = { mail = it },
@@ -35,6 +34,7 @@ fun FormRegister() {
                 .width(300.dp)
                 .height(50.dp)
         )
+
 
         TextField(
             value = password,
@@ -48,29 +48,17 @@ fun FormRegister() {
                 .height(50.dp)
         )
 
-        TextField(
-            value = secondPassword,
-            onValueChange = { secondPassword = it },
-            label = {  Text("Confirme ton mot de passe") },
-            textStyle = TextStyle(color = Color.Gray),
+
+
+        Text(text = "Mot de passe oublié ?",
             modifier = Modifier
-                .clip(RoundedCornerShape(25.dp))
-                .background(Color.White)
-                .width(300.dp)
-                .height(50.dp)
+                .padding(end = 20.dp)
+                .fillMaxWidth(),
+            textAlign = TextAlign.End,
         )
-
-        Row() {
-            Text(
-                text = "En t'inscrivant, tu acceptes les Conditions générales d'utilisation de Padsou",
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier
-                    .padding(top = 60.dp, start = 15.dp)
-            )
-        }
-
-
-
     }
+
+
+
 
 }

@@ -25,21 +25,21 @@ import okhttp3.internal.notify
 
 
 @Composable
-fun OfferInList(offer: Offer){
+fun OfferOnBoarding(offer: Offer){
     Column(modifier = Modifier.padding(bottom = 20.dp)){
         Box(modifier = Modifier.padding(bottom = 10.dp)){
             AsyncImage(
                 model = offer.img,
                 contentDescription = offer.label,
                 modifier = Modifier
-                    .width(144.dp)
-                    .height(90.dp)
+                    .width(110.dp)
+                    .height(80.dp)
                     .clip(RoundedCornerShape(20.dp)),
                 contentScale = ContentScale.Crop
             )
             Row(modifier = Modifier
-                .padding(start = (144 / 2 - 15).dp)
-                .offset(y = (75).dp)){
+                .padding(start = (110 / 2 - 15).dp)
+                .offset(y = (60).dp)){
                 Box(modifier = Modifier
                     .size(35.dp)
                     .clip(CircleShape)
@@ -59,16 +59,16 @@ fun OfferInList(offer: Offer){
             }
         }
         Column(verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = Modifier.padding(top = 15.dp, start = 15.dp)) {
+            modifier = Modifier.padding(top = 5.dp, start = 5.dp)) {
             Text(text = offer.label,
                 modifier = Modifier,
-                fontSize = 12.sp,
+                fontSize = 8.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = integralcf
             )
             Text(text = offer.souslabel,
                 modifier = Modifier,
-                fontSize = 11.sp,
+                fontSize = 7.sp,
                 fontWeight = FontWeight.Normal,
                 fontFamily = integralcf
             )

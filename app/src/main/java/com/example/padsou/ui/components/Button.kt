@@ -17,11 +17,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.padsou.ui.theme.DarkBlue
+import com.example.padsou.ui.theme.integralcf
 
 @Composable
-fun PrimaryButton(text: String, personnalisedPadding: Int) {
-    Button(onClick = { /*TODO*/ },
+fun PrimaryButton(text: String, personnalisedPadding: Int,Path : String,navController: NavController) {
+    Button(onClick = { navController.navigate(Path) },
         colors = ButtonDefaults.buttonColors(backgroundColor = DarkBlue),
         modifier = Modifier
             .padding(top = personnalisedPadding.dp)
@@ -29,6 +31,9 @@ fun PrimaryButton(text: String, personnalisedPadding: Int) {
             .height(70.dp)
             .clip(RoundedCornerShape(20.dp))
     ) {
-        Text(text, style = TextStyle(color = Color.White), fontWeight = FontWeight.Bold, fontSize = 20.sp)
+        Text(text, style = TextStyle(color = Color.White),
+            fontWeight = FontWeight.Bold,
+            fontFamily = integralcf,
+            fontSize = 20.sp)
     }
 }

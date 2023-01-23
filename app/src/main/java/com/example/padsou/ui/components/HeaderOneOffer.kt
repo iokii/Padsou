@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.padsou.models.Offer
+import com.example.padsou.ui.theme.integralcf
 
 @Composable
 fun HeaderOneOffer(offer: Offer){
@@ -58,8 +59,15 @@ fun HeaderOneOffer(offer: Offer){
         Column(
             Modifier.padding(top = 60.dp,start=80.dp)
         ) {
-            Text(text = offer.label,Modifier, Color.White, fontSize = 25.sp, fontWeight = FontWeight.Bold)
-            Text(text = offer.souslabel,Modifier, Color.White, fontSize = 15.sp, fontWeight = FontWeight.Bold)
+            Text(text = offer.label,Modifier, Color.White,
+                fontSize = 25.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = integralcf
+            )
+            Text(text = offer.souslabel,Modifier, Color.White,
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = integralcf)
         }
 
     }
