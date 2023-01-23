@@ -5,5 +5,5 @@ data class User (
     val pdp : String,
     val email : String,
     val password : String
-) {
-}
+) 
+
