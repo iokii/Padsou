@@ -1,5 +1,7 @@
 package com.example.padsou.ui.components
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import android.widget.Button
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.height
@@ -21,7 +23,7 @@ import com.example.padsou.ui.theme.DarkBlue
 
 @Composable
 fun PrimaryButton(text: String, personnalisedPadding: Int) {
-    Button(onClick = { /*TODO*/ },
+    Button(onClick = { },
         colors = ButtonDefaults.buttonColors(backgroundColor = DarkBlue),
         modifier = Modifier
             .padding(top = personnalisedPadding.dp)

@@ -16,6 +16,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.padsou.ui.components.*
 //import com.example.padsou.ui.components.Register
 import com.example.padsou.ui.theme.PadsouTheme
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,18 +36,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    PadsouTheme {
-        Greeting("Android")
     }
 }

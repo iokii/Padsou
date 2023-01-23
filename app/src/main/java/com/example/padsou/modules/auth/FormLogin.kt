@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 fun FormLogin() {
     var mail by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var secondPassword by remember { mutableStateOf("") }
 
     TextField(
         value = mail,
