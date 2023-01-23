@@ -31,93 +31,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Color(0xFF5F67EA),
                 ) {
-                    Column(verticalArrangement = Arrangement.spacedBy(35.dp)
-                        ,modifier = Modifier
-                            .padding(start = 80.dp)
-                            .fillMaxWidth()
-                    ){
 
-                        Column(Modifier.padding(top = 40.dp)) {
-                            Text(
-                                text = "PAS DE SOUS ?",
-                                color = Color.White,
-                                fontSize = 35.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                            Text(
-                                text = "Y'A PADSOU !!!!!",
-                                color = Color(0xFFFC77A6),
-                                fontSize = 35.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-
-                        }
-
-                        Row(horizontalArrangement = Arrangement.spacedBy(5.dp),
-                            modifier = Modifier
-                                .padding(start = 80.dp)) {
-                            Box(modifier = Modifier
-                                .width(25.dp)
-                                .height(5.dp)
-                                .clip(shape = RectangleShape)
-                                .background(Color.White)
-                                .clip(
-                                    RoundedCornerShape(25.dp)
-                                ) ,
-                            )
-                            Box(modifier = Modifier
-                                .width(25.dp)
-                                .height(5.dp)
-                                .clip(shape = RectangleShape)
-                                .background(Color(0xFFb5b9b7))
-                            )
-                            Box(modifier = Modifier
-                                .width(25.dp)
-                                .height(5.dp)
-                                .clip(shape = RectangleShape)
-                                .background(Color(0xFFb5b9b7))
-                            )
-                        }
-
-                        Box(
-                            Modifier
-                                .padding(start = 15.dp)
-                                .width(225.dp)
-                                .height(225.dp)
-                                .background(Color.White)
-                                .clip(RoundedCornerShape(20.dp))
-                        ){
-                                // Mettres les offres exemples
-                        }
-
-                        Column(
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.padding(start = 25.dp)
-                                    .width(200.dp)
-                                    .fillMaxWidth()
-                            ) {
-                            Text(
-                                text = "Accède aux 500 bons plans qu’on te propose chaque mois",
-                                fontSize = 15.sp,
-                                textAlign = TextAlign.Center,
-                                color = Color.White
-                            )
-
-                        }
-
-
-                        //Bouton
-
-
-
-                        
                     }
                 }
             }
         }
     }
-}
+
 
 
 @Preview(showBackground = true)
