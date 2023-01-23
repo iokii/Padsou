@@ -6,6 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -19,6 +23,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.padsou.ui.components.*
+import com.example.padsou.ui.components.Register
+import com.example.padsou.ui.AddPlanDesc
+import com.example.padsou.ui.AddPlanPhoto
+import com.example.padsou.ui.MainNav
+import com.example.padsou.ui.theme.DarkBlue
+import com.example.padsou.ui.theme.GrayWhite
 import com.example.padsou.ui.theme.PadsouTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,21 +40,13 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = Color(0xFF5F67EA),
+
+                    color = DarkBlue
                 ) {
 
-                    }
                 }
             }
         }
     }
 
 
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    PadsouTheme {
-
-    }
-}
