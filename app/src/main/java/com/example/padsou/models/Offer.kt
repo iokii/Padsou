@@ -6,5 +6,6 @@ data class Offer (
     val listComment : List<Comment>,
     val nbrTested:Int,
     val img : String,
+    val pdp : String,
     val type : Enum<Filter>
 )
