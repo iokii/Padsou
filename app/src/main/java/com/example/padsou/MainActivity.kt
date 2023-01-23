@@ -10,6 +10,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.padsou.ui.AddPlanDesc
+import com.example.padsou.ui.AddPlanPhoto
+import com.example.padsou.ui.MainNav
+import com.example.padsou.ui.theme.DarkBlue
+import com.example.padsou.ui.theme.GrayWhite
 import com.example.padsou.ui.theme.PadsouTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,24 +25,13 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    color = DarkBlue
                 ) {
-                    Greeting("Android")
+                    AddPlanDesc()
+                    //AddPlanPhoto()
+                    //MainNav()
                 }
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    PadsouTheme {
-        Greeting("Android")
-    }
-}
