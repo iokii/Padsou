@@ -13,8 +13,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+
 import com.example.padsou.ui.components.*
-//import com.example.padsou.ui.components.Register
+import com.example.padsou.ui.components.Register
+import com.example.padsou.ui.AddPlanDesc
+import com.example.padsou.ui.AddPlanPhoto
+import com.example.padsou.ui.MainNav
+import com.example.padsou.ui.theme.DarkBlue
+import com.example.padsou.ui.theme.GrayWhite
+
 import com.example.padsou.ui.theme.PadsouTheme
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -28,11 +35,8 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    color = DarkBlue
                 ) {
-                    Column {
-                        MainNav()
-                    }
                 }
             }
         }
