@@ -24,7 +24,7 @@ fun RegisterView(navController: NavController) {
         HeaderText("BIENVENUE 😎", "Inscris-toi pour avoir les \nmeilleurs plans étudiants !")
         FormRegister()
         PrimaryButton("S'INSCRIRE", 20)
-        Row(modifier = Modifier.padding(top = 180.dp)) {
+        Row(modifier = Modifier.padding(top = 10.dp)) {
             Text(
                 text = "Déjà un compte ? ",
                 fontWeight = FontWeight.Bold

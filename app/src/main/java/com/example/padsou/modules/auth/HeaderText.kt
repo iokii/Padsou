@@ -26,7 +26,7 @@ fun HeaderText(titre: String, description: String) {
                     .padding(top = 50.dp))
         }
         Row {
-            Text(description, fontSize = 15.sp, textAlign = TextAlign.Center,
+            Text(description, fontSize = 20.sp, textAlign = TextAlign.Center,
                 modifier = Modifier
                     .padding(bottom = 50.dp))
         }
