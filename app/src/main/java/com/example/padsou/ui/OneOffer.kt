@@ -51,6 +51,7 @@ class OneOffer : ComponentActivity() {
             ),
             666,
             "https://media-cdn.tripadvisor.com/media/photo-w/13/c1/2c/b6/taco-bell.jpg",
+            "https://media-cdn.tripadvisor.com/media/photo-w/13/c1/2c/b6/taco-bell.jpg",
             Filter.COURSES
         )
 
