@@ -27,7 +27,9 @@ fun LoginView(navController: NavController) {
             description = "Reviens vite pour profiter \ndes bons plans"
         )
         FormLogin()
-        PrimaryButton("SE CONNECTER", 43)
+        PrimaryButton("SE CONNECTER", 43){
+
+        }
         Row(modifier = Modifier.padding(top = 280.dp)) {
             Text(
                 text = "Pas encore inscrit ? ",

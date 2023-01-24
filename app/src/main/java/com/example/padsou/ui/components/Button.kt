@@ -20,8 +20,8 @@ import androidx.compose.ui.unit.sp
 import com.example.padsou.ui.theme.DarkBlue
 
 @Composable
-fun PrimaryButton(text: String, personnalisedPadding: Int) {
-    Button(onClick = { /*TODO*/ },
+fun PrimaryButton(text: String, personnalisedPadding: Int, onClick: () -> Unit) {
+    Button(onClick = onClick,
         colors = ButtonDefaults.buttonColors(backgroundColor = DarkBlue),
         modifier = Modifier
             .padding(top = personnalisedPadding.dp)
