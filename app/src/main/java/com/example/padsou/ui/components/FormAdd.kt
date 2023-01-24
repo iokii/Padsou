@@ -124,8 +124,8 @@ fun FormAdd(navController: NavController,pageId:Int){
         Surface(color = GrayWhite,modifier = Modifier.clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))) {
             Column(modifier = Modifier
                 .fillMaxWidth()
-                .height(500.dp),
-                verticalArrangement = Arrangement.spacedBy(25.dp),
+                .fillMaxHeight(),
+                verticalArrangement = Arrangement.spacedBy(75.dp),
                 horizontalAlignment = Alignment.CenterHorizontally) {
                 Row(modifier = Modifier.width(180.dp).padding(15.dp),
                     horizontalArrangement = Arrangement.SpaceAround){
@@ -133,7 +133,7 @@ fun FormAdd(navController: NavController,pageId:Int){
                         .clip(
                             RoundedCornerShape(25.dp)
                         )
-                        .background(Color.Gray)
+                        .background(DarkBlue)
                         .width(50.dp)
                         .height(10.dp)){
                     }

@@ -20,8 +20,8 @@ import com.example.padsou.ui.theme.GrayWhite
 @Composable
 fun FooterAdd(navController: NavController){
     Surface(color = Color.White,modifier = Modifier
-        .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
-        .padding(top = 730.dp))
+        .padding(top = 730.dp)
+        .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp)))
     {
 
         Row(modifier = Modifier

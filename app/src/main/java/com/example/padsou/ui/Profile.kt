@@ -4,6 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -11,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -19,6 +22,7 @@ import androidx.navigation.NavController
 import com.example.padsou.models.User
 import coil.compose.AsyncImage
 import com.example.padsou.ui.components.FooterAdd
+import com.example.padsou.ui.theme.DarkBlue
 import com.example.padsou.ui.theme.GrayWhite
 import com.example.padsou.ui.theme.integralcf
 
@@ -31,7 +35,7 @@ fun Profile (navController: NavController, userid: String) {
 
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = GrayWhite
+        color = DarkBlue
     ) {
         Column(
             Modifier.padding(top = 55.dp),
@@ -68,7 +72,7 @@ fun Profile (navController: NavController, userid: String) {
             ) {
                 Column() {
                     Column(
-                        Modifier.padding(start = 125.dp, top = 40.dp),
+                        Modifier.fillMaxWidth().padding(top = 40.dp),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(17.dp)
                     ) {
@@ -89,22 +93,23 @@ fun Profile (navController: NavController, userid: String) {
                             fontFamily = integralcf
                         )
                         Text(text = user.password, fontSize = 15.sp)
-                        Text(
-                            text = "Offres abonnés :",
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            fontFamily = integralcf
-                        )
 
+                        Button(onClick = { navController.navigate("loginview") },
+                            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red),
+                            modifier = Modifier
+                                .width(300.dp)
+                                .height(70.dp)
+                                .clip(RoundedCornerShape(20.dp))
+                        ) {
+                            Text("Déconnexion", style = TextStyle(color = Color.White),
+                                fontWeight = FontWeight.Bold,
+                                fontFamily = integralcf,
+                                fontSize = 20.sp)
+                        }
                 }
                 }
-
             }
-
-
         }
-
-
     }
     FooterAdd(navController)
 }
