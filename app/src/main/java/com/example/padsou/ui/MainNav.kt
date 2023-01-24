@@ -6,7 +6,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.padsou.models.Offer
 import com.example.padsou.ui.components.LoginView
-import com.example.padsou.ui.components.RegisterView
 
 @Composable
 fun MainNav(){

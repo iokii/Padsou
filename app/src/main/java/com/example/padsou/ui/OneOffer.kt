@@ -53,7 +53,9 @@ fun OneOffer (navController: NavController,offerId: String) {
                 fontSize = 20.sp)
 
             Box(Modifier.padding(top = 70.dp)){
-                PrimaryButton(text = "Profiter de l'offre", personnalisedPadding = 0, Path = "offer", navController = navController)
+                PrimaryButton(text = "Profiter de l'offre", personnalisedPadding = 0){
+                    navController.navigate("offer")
+                }
             }
 
             

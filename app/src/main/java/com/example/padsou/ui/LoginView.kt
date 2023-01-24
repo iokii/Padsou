@@ -29,27 +29,27 @@ fun LoginView(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally) {
         HeaderText(
             titre = "TE REVOILÀ ! 🔥",
-            description = "Reviens vite pour profiter \ndes bons plans",
+            description = "Reviens vite pour profiter \ndes bons plans"
         )
         Column(modifier = Modifier.background(GrayWhite), horizontalAlignment = Alignment.CenterHorizontally) {
-            FormLogin()
-            PrimaryButton("SE CONNECTER", 43, Path = "home",navController)
-            Row(modifier = Modifier.padding(top = 200.dp, bottom = 40.dp).fillMaxHeight()) {
-                Text(
-                    text = "Pas encore inscrit ? ",
-                    fontWeight = FontWeight.Normal,
-                    fontFamily = FontFamily.Default,
-                    fontSize = 15.sp
-                )
-                Text(
-                    text = "Allez viens !",
-                    fontWeight = FontWeight.Normal,
-                    fontFamily = FontFamily.Default,
-                    style = TextStyle(color = DarkBlue, fontSize = 15.sp),
-                    modifier = Modifier.clickable { navController.navigate("registerview") }
-                )
-            }
+        FormLogin()
+        PrimaryButton("SE CONNECTER", 43){
+            navController.navigate("home")
         }
-
+        Row(modifier = Modifier.padding(top = 200.dp, bottom = 40.dp).fillMaxHeight()) {
+            Text(
+                text = "Pas encore inscrit ? ",
+                fontWeight = FontWeight.Normal,
+                fontFamily = FontFamily.Default,
+                fontSize = 15.sp
+            )
+            Text(
+                text = "Allez viens !",
+                fontWeight = FontWeight.Normal,
+                fontFamily = FontFamily.Default,
+                style = TextStyle(color = DarkBlue, fontSize = 15.sp),
+                modifier = Modifier.clickable { navController.navigate("registerview") }
+            )
+        }}
     }
 }

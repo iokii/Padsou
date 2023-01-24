@@ -22,8 +22,8 @@ import com.example.padsou.ui.theme.DarkBlue
 import com.example.padsou.ui.theme.integralcf
 
 @Composable
-fun PrimaryButton(text: String, personnalisedPadding: Int,Path : String,navController: NavController) {
-    Button(onClick = { navController.navigate(Path) },
+fun PrimaryButton(text: String, personnalisedPadding: Int, onClick: () -> Unit) {
+    Button(onClick = onClick,
         colors = ButtonDefaults.buttonColors(backgroundColor = DarkBlue),
         modifier = Modifier
             .padding(top = personnalisedPadding.dp)

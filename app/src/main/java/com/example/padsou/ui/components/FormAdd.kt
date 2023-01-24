@@ -113,7 +113,9 @@ fun FormAdd(navController: NavController,pageId:Int){
                     )
                 }
 
-                PrimaryButton("Suivant",0,"addPlan/2",navController)
+                PrimaryButton("Suivant",0){
+                    navController.navigate("addPlan/2")
+                }
             }
         }
     }
@@ -163,7 +165,9 @@ fun FormAdd(navController: NavController,pageId:Int){
                     }
                 }
 
-                PrimaryButton("AJOUTER CE BON PLAN",0,"home",navController)
+                PrimaryButton("AJOUTER CE BON PLAN",0){
+                    navController.navigate("home")
+                }
             }
         }
     }

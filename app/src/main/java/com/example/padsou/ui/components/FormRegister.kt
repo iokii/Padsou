@@ -1,10 +1,8 @@
 package com.example.padsou.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
@@ -14,21 +12,20 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun FormRegister() {
-    var mail by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var secondPassword by remember { mutableStateOf("") }
+fun FormRegister(registerViewModel: RegisterViewModel) {
+    val email: State<String> = registerViewModel.email.collectAsState()
+    val password: State<String> = registerViewModel.password.collectAsState()
+    val secondPassword: State<String> = registerViewModel.secondPassword.collectAsState()
+
     Column(verticalArrangement = Arrangement.spacedBy(15.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         TextField(
-            value = mail,
-            onValueChange = { mail = it },
+            value = email.value,
+            onValueChange = { registerViewModel.onEmailChange(it) },
             label = { Text("Ton adresse e-mail",color = Color.Gray) },
             textStyle = TextStyle(color = Color.Gray),
             modifier = Modifier
@@ -39,8 +36,8 @@ fun FormRegister() {
         )
 
         TextField(
-            value = password,
-            onValueChange = { password = it },
+            value = password.value,
+            onValueChange = { registerViewModel.onPasswordChange(it) },
             label = { Text("Ton mot de passe",color = Color.Gray) },
             textStyle = TextStyle(color = Color.Gray),
             modifier = Modifier
@@ -51,8 +48,8 @@ fun FormRegister() {
         )
 
         TextField(
-            value = secondPassword,
-            onValueChange = { secondPassword = it },
+            value = secondPassword.value,
+            onValueChange = { registerViewModel.onSecondPasswordChange(it) },
             label = {  Text("Confirme ton mot de passe",color = Color.Gray) },
             textStyle = TextStyle(color = Color.Gray),
             modifier = Modifier
