@@ -41,13 +41,13 @@ Surface(
     modifier = Modifier.fillMaxSize(),
     color = Color(0xFF5F67EA),
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(35.dp)
+    Column(verticalArrangement = Arrangement.spacedBy(45.dp)
         ,modifier = Modifier
             .padding(start = 80.dp)
             .fillMaxWidth()
     ){
 
-        Column(Modifier.padding(top = 40.dp)) {
+        Column(Modifier.padding(top = 30.dp)) {
             Text(
                 text = "PAS DE SOUS ?",
                 color = Color.White,
@@ -94,18 +94,19 @@ Surface(
         Box(
             Modifier
                 .width(250.dp)
-                .height(270.dp)
+                .height(290.dp)
                 .clip(RoundedCornerShape(25.dp))
                 .background(Color.White)
         ){
             LazyVerticalGrid(columns= GridCells.Fixed(2),
                 contentPadding = PaddingValues(
                     start = 10.dp,
-                    bottom = 16.dp
+                    bottom = 10.dp
                 ),
                 modifier = Modifier
-                    .padding(5.dp)
+                    .padding(top = 10.dp, start = 5.dp, end = 5.dp)
                     .fillMaxSize(),
+                horizontalArrangement = Arrangement.SpaceBetween,
                 content={
                     item {
                         OfferOnBoarding(

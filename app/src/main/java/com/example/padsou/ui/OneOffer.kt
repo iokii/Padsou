@@ -3,6 +3,7 @@ package com.example.padsou.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -50,6 +51,13 @@ fun OneOffer (navController: NavController,offerId: String) {
                 fontWeight = FontWeight.Bold,
                 fontFamily = integralcf,
                 fontSize = 20.sp)
+
+            Box(Modifier.padding(top = 70.dp)){
+                PrimaryButton(text = "Profiter de l'offre", personnalisedPadding = 0, Path = "offer", navController = navController)
+            }
+
+            
+            
         }
 
 

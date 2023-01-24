@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.padsou.ui.theme.GrayWhite
 import com.example.padsou.ui.theme.integralcf
 
 @Composable
@@ -22,7 +23,7 @@ fun HeaderText(titre: String, description: String) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White),
+            .background(GrayWhite),
         horizontalAlignment = Alignment.CenterHorizontally) {
         Row {
             Text(titre, fontSize = 30.sp, fontWeight = FontWeight.Bold,

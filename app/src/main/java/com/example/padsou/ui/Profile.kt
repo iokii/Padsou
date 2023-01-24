@@ -19,6 +19,7 @@ import androidx.navigation.NavController
 import com.example.padsou.models.User
 import coil.compose.AsyncImage
 import com.example.padsou.ui.components.FooterAdd
+import com.example.padsou.ui.theme.GrayWhite
 import com.example.padsou.ui.theme.integralcf
 
 @Composable
@@ -30,7 +31,7 @@ fun Profile (navController: NavController, userid: String) {
 
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = Color(0xFF5F67EA)
+        color = GrayWhite
     ) {
         Column(
             Modifier.padding(top = 55.dp),
@@ -63,7 +64,7 @@ fun Profile (navController: NavController, userid: String) {
                     .fillMaxWidth()
                     .height(500.dp)
                     .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
-                    .background(Color.White),
+                    .background(GrayWhite),
             ) {
                 Column() {
                     Column(
@@ -94,7 +95,6 @@ fun Profile (navController: NavController, userid: String) {
                             fontWeight = FontWeight.Bold,
                             fontFamily = integralcf
                         )
-                        //Do show offres abonné
 
                 }
                 }

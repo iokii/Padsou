@@ -13,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.padsou.ui.theme.DarkBlue
+import com.example.padsou.ui.theme.GrayWhite
 import com.example.padsou.ui.theme.integralcf
 
 @Composable
@@ -20,25 +21,24 @@ fun RegisterView(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White)
+            .background(GrayWhite)
+            .fillMaxHeight()
             //.height(0.dp)
                 ,
         horizontalAlignment = Alignment.CenterHorizontally) {
         HeaderText("BIENVENUE 😎", "Inscris-toi pour avoir les \nmeilleurs plans étudiants !")
         FormRegister()
         PrimaryButton("S'INSCRIRE", 20,"home",navController)
-        Row(modifier = Modifier.padding(top = 10.dp)
-            .background(Color.White)
+        Row(modifier = Modifier.padding(top = 50.dp)
+            .background(GrayWhite)
             .padding(top = 35.dp, bottom = 15.dp)) {
             Text(
                 text = "Déjà un compte ? ",
-                fontWeight = FontWeight.Bold,
-                fontFamily = integralcf
+                fontWeight = FontWeight.Normal,
             )
             Text(
                 text = "Connecte-toi !",
-                fontWeight = FontWeight.Bold,
-                fontFamily = integralcf,
+                fontWeight = FontWeight.Normal,
                 style = TextStyle(color = DarkBlue),
                 modifier = Modifier.clickable { navController.navigate("loginview") }
             )

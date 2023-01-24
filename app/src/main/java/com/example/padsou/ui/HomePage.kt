@@ -19,15 +19,17 @@ import androidx.navigation.NavController
 import com.example.padsou.R
 import com.example.padsou.models.*
 import com.example.padsou.ui.components.*
+import com.example.padsou.ui.theme.DarkBlue
+import com.example.padsou.ui.theme.GrayWhite
 import com.example.padsou.ui.theme.integralcf
 
 
 @Composable
 fun HomePage(navController: NavController,offers : List<Offer>) {
 
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = Color(0xFF5F67EA)
+        Column(
+            modifier = Modifier.fillMaxSize()
+            .background(DarkBlue)
         ) {
             Column() {
                 Text(text = "COUCOU TOI,",Modifier.padding(top = 60.dp, start = 50.dp), Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold, fontFamily = integralcf)
@@ -38,7 +40,7 @@ fun HomePage(navController: NavController,offers : List<Offer>) {
                     .defaultMinSize(10.dp, 600.dp)
                     .clip(RoundedCornerShape(40.dp, 40.dp))
                     .background(
-                        color = Color.White,
+                        color = GrayWhite,
                         shape = RoundedCornerShape(40.dp, 40.dp)
                     )
                 ){
@@ -76,7 +78,9 @@ fun HomePage(navController: NavController,offers : List<Offer>) {
                             }
 
                         }
+
                     }
+
                 }
     FooterAdd(navController)
 }

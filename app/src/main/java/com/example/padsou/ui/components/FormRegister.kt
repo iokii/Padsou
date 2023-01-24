@@ -16,7 +16,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun FormRegister() {
@@ -27,47 +29,48 @@ fun FormRegister() {
         TextField(
             value = mail,
             onValueChange = { mail = it },
-            label = { Text("Ton adresse e-mail") },
+            label = { Text("Ton adresse e-mail",color = Color.Gray) },
             textStyle = TextStyle(color = Color.Gray),
             modifier = Modifier
                 .clip(RoundedCornerShape(25.dp))
                 .background(Color.White)
                 .width(300.dp)
-                .height(50.dp)
+                .height(60.dp)
         )
 
         TextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Ton mot de passe") },
+            label = { Text("Ton mot de passe",color = Color.Gray) },
             textStyle = TextStyle(color = Color.Gray),
             modifier = Modifier
                 .clip(RoundedCornerShape(25.dp))
                 .background(Color.White)
                 .width(300.dp)
-                .height(50.dp)
+                .height(60.dp)
         )
 
         TextField(
             value = secondPassword,
             onValueChange = { secondPassword = it },
-            label = {  Text("Confirme ton mot de passe") },
+            label = {  Text("Confirme ton mot de passe",color = Color.Gray) },
             textStyle = TextStyle(color = Color.Gray),
             modifier = Modifier
                 .clip(RoundedCornerShape(25.dp))
                 .background(Color.White)
                 .width(300.dp)
-                .height(50.dp)
+                .height(60.dp)
         )
 
-        Row() {
             Text(
                 text = "En t'inscrivant, tu acceptes les Conditions générales d'utilisation de Padsou",
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
-                    .padding(top = 60.dp, start = 15.dp)
+                    .padding(top = 60.dp, start = 40.dp, end = 40.dp),
+                fontSize = 13.sp,
+                textAlign = TextAlign.Center
             )
-        }
+
 
 
 

@@ -22,30 +22,30 @@ fun FormLogin() {
     var mail by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
-    Column(horizontalAlignment = Alignment.CenterHorizontally,verticalArrangement = Arrangement.spacedBy(15.dp)) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally,verticalArrangement = Arrangement.spacedBy(20.dp)) {
         TextField(
             value = mail,
             onValueChange = { mail = it },
-            label = { Text("Ton adresse e-mail") },
+            label = { Text("Ton adresse e-mail",color = Color.Gray) },
             textStyle = TextStyle(color = Color.Gray),
             modifier = Modifier
                 .clip(RoundedCornerShape(25.dp))
                 .background(Color.White)
                 .width(300.dp)
-                .height(50.dp)
+                .height(60.dp)
         )
 
 
         TextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Ton mot de passe") },
+            label = { Text("Ton mot de passe",color = Color.Gray) },
             textStyle = TextStyle(color = Color.Gray),
             modifier = Modifier
                 .clip(RoundedCornerShape(25.dp))
                 .background(Color.White)
                 .width(300.dp)
-                .height(50.dp)
+                .height(60.dp)
         )
 
 
@@ -53,7 +53,7 @@ fun FormLogin() {
         Text(text = "Mot de passe oublié ?",
             modifier = Modifier
                 .padding(end = 20.dp)
-                .fillMaxWidth(),
+                .fillMaxWidth() ,
             textAlign = TextAlign.End,
         )
     }

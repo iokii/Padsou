@@ -5,9 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,14 +15,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.padsou.R
-import com.example.padsou.ui.theme.DarkBlue
 import com.example.padsou.ui.theme.GrayWhite
 
 @Composable
 fun FooterAdd(navController: NavController){
     Surface(color = Color.White,modifier = Modifier
-        .padding(top = 580.dp)
-        .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))) {
+        .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
+        .padding(top = 730.dp))
+    {
+
         Row(modifier = Modifier
             .fillMaxWidth()
             .height(90.dp)
