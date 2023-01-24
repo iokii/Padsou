@@ -1,4 +1,4 @@
-package com.example.padsou.ui.components
+package com.example.padsou.models
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
