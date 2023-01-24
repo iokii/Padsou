@@ -3,40 +3,40 @@ package com.example.padsou.models.service
 import android.util.Log
 import com.example.padsou.models.Offer
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class OfferService {
     var db = Firebase.firestore
     var collection = db.collection("offers")
 
-    public fun getAll(){
-        var offers: List<String> = listOf<String>()
+    public fun getAll(): List<Offer>{
+        var offers: List<Offer> = listOf<Offer>()
         collection
             .get()
             .addOnSuccessListener { result ->
                 for (document in result){
-                    Log.d("aaa", "ggwp:  ${ document.data }")
+                    offers += document.toObject<Offer>()
                 }
-                //offers = result.toObjects()
 
             }
             .addOnFailureListener { exception ->
                 Log.d("aaa", "Error getting documents: ", exception)
             }
+        return offers
     }
 
-    public fun get(id: String){
-        var offers: List<String> = listOf<String>()
+    public fun get(id: String): Offer?{
+        var offer: Offer? = null
         collection.document(id)
             .get()
             .addOnSuccessListener { result ->
-                Log.d("aaa", "ggwp:  ${ result.data }")
-                //offers = result.toObjects<Offer>()
-
+                offer = result.toObject<Offer>()
             }
             .addOnFailureListener { exception ->
                 Log.d("aaa", "Error getting documents: ", exception)
             }
+        return offer
     }
 
     public fun create(offer: Offer){

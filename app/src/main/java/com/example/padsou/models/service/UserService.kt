@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.padsou.models.Offer
 import com.example.padsou.models.User
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class UserService {
@@ -11,18 +12,17 @@ class UserService {
     var collection = db.collection("users")
 
 
-    public fun get(id: String){
-        var users: List<User> = listOf<User>()
+    public fun get(id: String): User?{
+        var user: User? = null
         collection.document(id)
             .get()
             .addOnSuccessListener { result ->
-                Log.d("aaa", "ggwp:  ${ result.data }")
-                //offers = result.toObjects()
-
+                user = result.toObject<User>()
             }
             .addOnFailureListener { exception ->
                 Log.d("aaa", "Error getting documents: ", exception)
             }
+        return user
     }
 
 
