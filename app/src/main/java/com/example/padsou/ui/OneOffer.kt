@@ -34,7 +34,7 @@ fun OneOffer (navController: NavController,offerId: String) {
 
 
     val Dataoffer: Offer? = offerService.get(offerId)
-    var offer : Offer = Offer("","", listOf(),0,"",Filter.NULL,"")
+    var offer : Offer = Offer("","", listOf(),0,"",Filter.NULL.toString(),"")
 
     if (Dataoffer != null) {
         offer = Dataoffer
