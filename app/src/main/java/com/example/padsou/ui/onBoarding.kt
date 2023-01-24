@@ -181,7 +181,7 @@ Surface(
 
         }
 
-        Box(){
+        Box(modifier = Modifier.padding(bottom = 15.dp)){
             Button(onClick = { navController.navigate("loginview") },
             colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF9709C)),
             modifier = Modifier
