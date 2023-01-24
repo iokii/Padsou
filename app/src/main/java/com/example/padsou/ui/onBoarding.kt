@@ -34,9 +34,12 @@ import com.example.padsou.ui.components.PrimaryButton
 import com.example.padsou.ui.theme.DarkBlue
 import com.example.padsou.ui.theme.PadsouTheme
 import com.example.padsou.ui.theme.integralcf
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Composable
 fun onBoarding(navController: NavController){
+    var auth = Firebase.auth
 Surface(
     modifier = Modifier.fillMaxSize(),
     color = Color(0xFF5F67EA),
@@ -183,7 +186,13 @@ Surface(
         }
 
         Box(modifier = Modifier.padding(bottom = 15.dp)){
-            Button(onClick = { navController.navigate("loginview") },
+            Button(onClick = { if(auth.currentUser!=null){
+                navController.navigate("home")
+            }
+                else{
+                navController.navigate("loginview")
+            }
+                             },
             colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF9709C)),
             modifier = Modifier
                 .width(250.dp)

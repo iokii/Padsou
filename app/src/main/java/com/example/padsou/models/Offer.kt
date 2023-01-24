@@ -7,4 +7,5 @@ data class Offer(
     val nbrTested:Int,
     val img: String,
     val type: Enum<Filter>,
-    val pdp : String = "")
+    val pdp : String = ""
+)

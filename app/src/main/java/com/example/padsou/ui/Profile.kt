@@ -1,5 +1,6 @@
 package com.example.padsou.ui
 
+import AccountService
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -31,7 +32,7 @@ fun Profile (navController: NavController, userid: String) {
     // A surface container using the 'background' color from the theme
 
     val user = User("","","","")
-
+    val accountService = AccountService()
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -94,7 +95,7 @@ fun Profile (navController: NavController, userid: String) {
                         )
                         Text(text = user.password, fontSize = 15.sp)
 
-                        Button(onClick = { navController.navigate("loginview") },
+                        Button(onClick = { accountService.disconnect(navController) },
                             colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red),
                             modifier = Modifier
                                 .width(300.dp)
