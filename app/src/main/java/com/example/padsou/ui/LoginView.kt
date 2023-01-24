@@ -1,16 +1,13 @@
 package com.example.padsou.ui.components
 
 import AccountService
-import android.preference.PreferenceActivity.Header
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -19,10 +16,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.padsou.models.LoginViewModel
 import com.example.padsou.modules.auth.FormLogin
 import com.example.padsou.ui.theme.DarkBlue
 import com.example.padsou.ui.theme.GrayWhite
-import com.example.padsou.ui.theme.integralcf
 
 @Composable
 fun LoginView(navController: NavController) {

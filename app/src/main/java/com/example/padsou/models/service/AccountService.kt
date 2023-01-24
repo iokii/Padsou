@@ -54,9 +54,17 @@ class AccountService {
     public fun login(email: String, password: String, context: Context, navController: NavController): Boolean{
         var success = false
         if(TextUtils.isEmpty(password)){
+            Toast.makeText(
+                context, "Veuillez remplir tous les champs.",
+                Toast.LENGTH_SHORT
+            ).show()
             return success
         }
         if(TextUtils.isEmpty(email)){
+            Toast.makeText(
+                context, "Veuillez remplir tous les champs.",
+                Toast.LENGTH_SHORT
+            ).show()
             return success
         }
         auth = Firebase.auth

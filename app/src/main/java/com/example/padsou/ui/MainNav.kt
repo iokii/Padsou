@@ -5,13 +5,24 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.padsou.models.Offer
+import com.example.padsou.models.service.OfferService
+import com.example.padsou.models.service.UserService
 import com.example.padsou.ui.components.LoginView
 
 @Composable
 fun MainNav(){
     val navController = rememberNavController()
+    val offerservice = OfferService()
+    val userService = UserService()
+
+
     NavHost(navController = navController, startDestination = "onBoarding"){
-        composable("home"){ HomePage(navController = navController, offers = listOf<Offer>())}
+        composable("home"){
+
+            val offers : List<Offer> = offerservice.getAll()
+            HomePage(navController = navController, offers = offers)
+
+        }
         composable("oneOffer/{offerId}"){
                 navBackStackEntry  ->
             val offerid = navBackStackEntry.arguments?.getString("offerId")

@@ -11,12 +11,12 @@ class OfferService {
     var collection = db.collection("offers")
 
     public fun getAll(): List<Offer>{
-        var offers: List<Offer> = listOf<Offer>()
+        var offers:MutableList<Offer> = mutableListOf<Offer>()
         collection
             .get()
             .addOnSuccessListener { result ->
                 for (document in result){
-                    offers += document.toObject<Offer>()
+                    offers.add(document.toObject())
                 }
 
             }

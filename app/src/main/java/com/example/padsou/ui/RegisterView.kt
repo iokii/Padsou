@@ -17,7 +17,7 @@ import androidx.navigation.NavController
 import com.example.padsou.ui.components.FormRegister
 import com.example.padsou.ui.components.HeaderText
 import com.example.padsou.ui.components.PrimaryButton
-import com.example.padsou.ui.components.RegisterViewModel
+import com.example.padsou.models.RegisterViewModel
 import com.example.padsou.ui.theme.DarkBlue
 import com.example.padsou.ui.theme.GrayWhite
 
