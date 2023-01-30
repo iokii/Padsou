@@ -40,6 +40,6 @@ fun MainNav(){
         }
         composable("registerview") { RegisterView(navController) }
         composable("loginview") { LoginView(navController) }
-        composable("profil") { Profile(navController,"boop") }
+        composable("profil") { Profile(navController) }
     }
 }

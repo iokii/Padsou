@@ -25,106 +25,18 @@ import androidx.navigation.NavController
 import com.example.padsou.models.User
 import coil.compose.AsyncImage
 import com.example.padsou.models.service.UserService
-import com.example.padsou.ui.components.FooterAdd
+import com.example.padsou.ui.components.*
 import com.example.padsou.ui.theme.DarkBlue
 import com.example.padsou.ui.theme.GrayWhite
 import com.example.padsou.ui.theme.integralcf
 
 @Composable
-fun Profile (navController: NavController, userid: String) {
-    // A surface container using the 'background' color from the theme
-    val userService = UserService()
 
-    val dataUser : User? = userService.get(userid)
-    var user : User  = User("","","","")
-
-    if (dataUser != null)
-    {
-        user = dataUser
-    } else{
-        Toast.makeText(LocalContext.current,"Erreur sur la récupération du profil", Toast.LENGTH_LONG).show()
-        navController.navigate("home")
-    }
-
-
-    val accountService = AccountService()
-
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = DarkBlue
-    ) {
-        Column(
-            Modifier.padding(top = 55.dp),
-            verticalArrangement = Arrangement.spacedBy(15.dp)
-        ) {
-            Column(
-                modifier = Modifier
-                    .padding(start = 125.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(10.dp)
-            ) {
-                AsyncImage(
-                    model = user.pdp,
-                    contentDescription = "Image de profile",
-                    modifier = Modifier
-                        .clip(CircleShape)
-                        .size(125.dp)
-                )
-                Text(
-                    user.name, fontSize = 25.sp,
-                    fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center,
-                    color = Color.White,
-                    fontFamily = integralcf
-
-                )
-            }
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(500.dp)
-                    .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
-                    .background(GrayWhite),
-            ) {
-                Column() {
-                    Column(
-                        Modifier.fillMaxWidth().padding(top = 40.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(17.dp)
-                    ) {
-                        Text(
-                            text = "Email :", fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            fontFamily = integralcf
-                        )
-                        Text(
-                            text = user.email,
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Normal,
-                            fontFamily = integralcf
-                        )
-                        Text(
-                            text = "Mot de Passe :", fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            fontFamily = integralcf
-                        )
-                        Text(text = user.password, fontSize = 15.sp)
-
-                        Button(onClick = { accountService.disconnect(navController) },
-                            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red),
-                            modifier = Modifier
-                                .width(300.dp)
-                                .height(70.dp)
-                                .clip(RoundedCornerShape(20.dp))
-                        ) {
-                            Text("Déconnexion", style = TextStyle(color = Color.White),
-                                fontWeight = FontWeight.Bold,
-                                fontFamily = integralcf,
-                                fontSize = 20.sp)
-                        }
-                }
-                }
-            }
+fun Profile (navController: NavController) {
+    Column() {
+        HeaderProfil()
+        Box(){
+            FormProfil(navController)
         }
     }
     FooterAdd(navController)
