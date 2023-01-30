@@ -1,20 +1,22 @@
 package com.example.padsou.ui
 
-import android.graphics.Typeface
+import android.util.Log
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.*
 import androidx.compose.ui.unit.*
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.padsou.R
 import com.example.padsou.models.*
@@ -25,7 +27,11 @@ import com.example.padsou.ui.theme.integralcf
 
 
 @Composable
-fun HomePage(navController: NavController,offers : List<Offer>) {
+fun HomePage(navController: NavController) {
+
+        val homeViewModel = viewModel<HomeViewModel>()
+        homeViewModel.getAll()
+        val offers: State<List<Offer>> = homeViewModel.offers.collectAsState()
 
         Column(
             modifier = Modifier.fillMaxSize()
@@ -69,8 +75,9 @@ fun HomePage(navController: NavController,offers : List<Offer>) {
                                         .padding(20.dp)
                                         .fillMaxSize(),
                                     content={
-                                        items(offers.size) { index ->
-                                                OfferInList(offer = offers[index])
+                                        items(offers.value.size) { index ->
+                                                OfferInList(offer = offers.value[index],navController,offers.value[index].id)
+
                                         }
                                     }
                                 )
