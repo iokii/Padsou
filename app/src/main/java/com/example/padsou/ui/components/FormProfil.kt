@@ -1,5 +1,6 @@
 package com.example.padsou.ui.components
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -17,20 +18,33 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.padsou.models.ProfileViewModel
+import com.example.padsou.models.User
 import com.example.padsou.ui.theme.GrayWhite
 import com.example.padsou.ui.theme.integralcf
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Composable
 fun FormProfil(navController: NavController){
+    var profileViewModel = ProfileViewModel()
+    var idUser = Firebase.auth.currentUser?.uid
+    if (idUser != null) {
+        profileViewModel.get(idUser)
+    }
+    var user = profileViewModel.user.collectAsState()
+    Log.d("TAG", "FormProfil: $user")
+
     var pseudo by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    Surface(color = GrayWhite,modifier = Modifier.clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
+    Surface(color = GrayWhite,modifier = Modifier
+        .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
         .verticalScroll(rememberScrollState())) {
         Column(modifier = Modifier
             .fillMaxWidth()
             .height(600.dp)
-            .padding(bottom = 50.dp,top = 50.dp),
+            .padding(bottom = 50.dp, top = 50.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally) {
             Column() {
@@ -41,8 +55,8 @@ fun FormProfil(navController: NavController){
                 TextField(
                     value = pseudo,
                     onValueChange = { pseudo = it },
-                    //label = { Text("Abonnement 1 an Basic-Fit")},
-                    textStyle = TextStyle(color = Color.Gray,
+                    label = { user.value?.let { Text(color = Color.Black , text = it.name.toString()) } },
+                    textStyle = TextStyle(color = Color.Black,
                         fontWeight = FontWeight.Normal
                     ),
                     modifier = Modifier
@@ -60,8 +74,8 @@ fun FormProfil(navController: NavController){
                 TextField(
                     value = email,
                     onValueChange = { email = it },
-                    //label = { Text("Ne soit pas trop bavard, on s’en fou, va à l’essentiel") },
-                    textStyle = TextStyle(color = Color.Gray,
+                    label = { user.value?.let { Text(color = Color.Black , text = it.email.toString()) } },
+                    textStyle = TextStyle(color = Color.Black,
                         fontWeight = FontWeight.Normal
                     ),
                     modifier = Modifier
@@ -79,8 +93,8 @@ fun FormProfil(navController: NavController){
                 TextField(
                     value = password,
                     onValueChange = { password = it },
-                    //label = { Text("www.lienverstonbonplan.com") },
-                    textStyle = TextStyle(color = Color.Gray,
+                    label = { user.value?.let { Text(color = Color.Black , text = it.password.toString()) } },
+                    textStyle = TextStyle(color = Color.Black,
                         fontWeight = FontWeight.Normal
                     ),
                     modifier = Modifier

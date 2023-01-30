@@ -35,9 +35,6 @@ fun Profile (navController: NavController, userid: String) {
     // A surface container using the 'background' color from the theme
     val userService = UserService()
 
-    val dataUser : User? = userService.get(userid)
-    var user : User  = User("","","","","")
-
     Column() {
         HeaderProfil()
         Box(){
