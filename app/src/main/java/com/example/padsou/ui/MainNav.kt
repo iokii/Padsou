@@ -37,7 +37,18 @@ fun MainNav(){
             val pageId = navBackStackEntry.arguments?.getString("pageId")
 
             if (pageId != null) {
-                AddPlan(navController,pageId.toInt())
+                AddPlan(navController,pageId.toInt(),"","","")
+            }
+        }
+        composable("addPlan/{pageId}/{label}/{img}/{souslabel}"){navBackStackEntry  ->
+            val pageId = navBackStackEntry.arguments?.getString("pageId")
+            val label = navBackStackEntry.arguments?.getString("label")
+            val img = navBackStackEntry.arguments?.getString("img")
+            val souslabel = navBackStackEntry.arguments?.getString("souslabel")
+
+            if (pageId != null) {
+                if(label!=null && souslabel !=null && img!=null)
+                AddPlan(navController,pageId.toInt(),label,souslabel,img)
             }
         }
         composable("registerview") { RegisterView(navController) }

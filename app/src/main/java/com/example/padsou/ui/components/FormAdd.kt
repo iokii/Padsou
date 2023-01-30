@@ -1,11 +1,12 @@
 package com.example.padsou.ui.components
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import android.net.Uri
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,6 +17,7 @@ import com.example.padsou.ui.theme.DarkBlue
 import com.example.padsou.ui.theme.GrayWhite
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -23,14 +25,29 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.padsou.R
+import com.example.padsou.models.LoginViewModel
+import com.example.padsou.models.Offer
+import com.example.padsou.models.PageAddViewModel
+import com.example.padsou.models.service.OfferService
 import com.example.padsou.ui.theme.integralcf
 
 @Composable
-fun FormAdd(navController: NavController,pageId:Int){
+fun FormAdd(navController: NavController,pageId:Int, pageAddViewModel: PageAddViewModel){
+    val mContext = LocalContext.current
+    val offerService = OfferService()
+    val label: State<String> = pageAddViewModel.label.collectAsState()
+    val souslabel: State<String> = pageAddViewModel.souslabel.collectAsState()
+    val img: State<String> = pageAddViewModel.img.collectAsState()
+
+    var imageUri by remember {
+        mutableStateOf<Uri?>(null)
+    }
+
+    val launcher = rememberLauncherForActivityResult(contract =
+    ActivityResultContracts.GetContent()) { uri: Uri? ->
+        imageUri = uri
+    }
     if (pageId == 1){
-        var titre by remember { mutableStateOf("") }
-        var description by remember { mutableStateOf("") }
-        var lien by remember { mutableStateOf("") }
         Surface(color = GrayWhite,modifier = Modifier.clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
             .verticalScroll(rememberScrollState())) {
             Column(modifier = Modifier
@@ -63,8 +80,8 @@ fun FormAdd(navController: NavController,pageId:Int){
                         fontWeight = FontWeight.Bold,
                         fontFamily = integralcf)
                     TextField(
-                        value = titre,
-                        onValueChange = { titre = it },
+                        value = label.value,
+                        onValueChange = { pageAddViewModel.onLabelChange(it) },
                         //label = { Text("Abonnement 1 an Basic-Fit")},
                         textStyle = TextStyle(color = Color.Gray,
                             fontWeight = FontWeight.Normal,
@@ -81,8 +98,8 @@ fun FormAdd(navController: NavController,pageId:Int){
                         fontWeight = FontWeight.Bold,
                         fontFamily = integralcf)
                     TextField(
-                        value = description,
-                        onValueChange = { description = it },
+                        value = souslabel.value,
+                        onValueChange = { pageAddViewModel.onSousLabelChange(it) },
                         //label = { Text("Ne soit pas trop bavard, on s’en fou, va à l’essentiel") },
                         textStyle = TextStyle(color = Color.Gray,
                             fontWeight = FontWeight.Normal,
@@ -99,8 +116,8 @@ fun FormAdd(navController: NavController,pageId:Int){
                         fontWeight = FontWeight.Bold,
                         fontFamily = integralcf)
                     TextField(
-                        value = lien,
-                        onValueChange = { lien = it },
+                        value = img.value,
+                        onValueChange = { pageAddViewModel.onImgChange(it);println(it) },
                         //label = { Text("www.lienverstonbonplan.com") },
                         textStyle = TextStyle(color = Color.Gray,
                             fontWeight = FontWeight.Normal,
@@ -114,7 +131,12 @@ fun FormAdd(navController: NavController,pageId:Int){
                 }
 
                 PrimaryButton("Suivant",0){
-                    navController.navigate("addPlan/2")
+                    if(label.value != "" && souslabel.value != "" && img.value != ""){
+                        navController.navigate("addPlan/2/"+label.value+"/"+souslabel.value+"/"+img.value)
+                    }
+                    else{
+                        Toast.makeText(mContext,"Veuillez remplir tous les champs",Toast.LENGTH_LONG).show()
+                    }
                 }
             }
         }
@@ -151,7 +173,9 @@ fun FormAdd(navController: NavController,pageId:Int){
                     Text(text = "PHOTO DU BON PLAN",
                         fontWeight = FontWeight.Bold,
                         fontFamily = integralcf)
-                    Box(modifier = Modifier
+                    Box(modifier = Modifier.clickable {
+                        launcher.launch("image/*")
+                    }
                         .clip(
                             RoundedCornerShape(25.dp)
                         )
@@ -166,6 +190,11 @@ fun FormAdd(navController: NavController,pageId:Int){
                 }
 
                 PrimaryButton("AJOUTER CE BON PLAN",0){
+                    var newOffer = Offer()
+                    newOffer.label = label.value
+                    newOffer.img = img.value
+                    newOffer.souslabel = souslabel.value
+                    offerService.create(newOffer)
                     navController.navigate("home")
                 }
             }

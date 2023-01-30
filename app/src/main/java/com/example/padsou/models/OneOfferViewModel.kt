@@ -43,7 +43,7 @@ class OneOfferViewModel : ViewModel() {
                             var comment :Comment  = document.toObject<Comment>()
                             db.collection("").get()
                                 .addOnSuccessListener { user ->
-                                    comment.user = user.toObject()!!
+                                    //comment.user = user.toObject()!!
                                 }
 
 
