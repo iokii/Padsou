@@ -25,12 +25,12 @@ class PageAddViewModel: ViewModel() {
         }
     }
 
-    private val _img = MutableStateFlow("")
-    val img = _img.asStateFlow()
+    private val _link = MutableStateFlow("")
+    val link = _link.asStateFlow()
 
-    fun onImgChange(img: String){
+    fun onLinkChange(link: String){
         viewModelScope.launch {
-            _img.emit(img)
+            _link.emit(link)
         }
     }
 

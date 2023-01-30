@@ -12,11 +12,11 @@ import com.example.padsou.ui.components.FormAdd
 import com.example.padsou.ui.components.HeaderAdd
 
 @Composable
-fun AddPlan(navController: NavController,pageId : Int, label: String, souslabel: String, img: String){
+fun AddPlan(navController: NavController,pageId : Int, label: String, souslabel: String, link: String){
     val pageAddViewModel = viewModel<PageAddViewModel>()
     pageAddViewModel.onLabelChange(label)
     pageAddViewModel.onSousLabelChange(souslabel)
-    pageAddViewModel.onImgChange(img)
+    pageAddViewModel.onLinkChange(link)
     Column() {
         HeaderAdd()
         Box(){

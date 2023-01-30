@@ -37,7 +37,7 @@ fun FormAdd(navController: NavController,pageId:Int, pageAddViewModel: PageAddVi
     val offerService = OfferService()
     val label: State<String> = pageAddViewModel.label.collectAsState()
     val souslabel: State<String> = pageAddViewModel.souslabel.collectAsState()
-    val img: State<String> = pageAddViewModel.img.collectAsState()
+    val link: State<String> = pageAddViewModel.link.collectAsState()
 
     var imageUri by remember {
         mutableStateOf<Uri?>(null)
@@ -116,8 +116,8 @@ fun FormAdd(navController: NavController,pageId:Int, pageAddViewModel: PageAddVi
                         fontWeight = FontWeight.Bold,
                         fontFamily = integralcf)
                     TextField(
-                        value = img.value,
-                        onValueChange = { pageAddViewModel.onImgChange(it);println(it) },
+                        value = link.value,
+                        onValueChange = { pageAddViewModel.onLinkChange(it);println(it) },
                         //label = { Text("www.lienverstonbonplan.com") },
                         textStyle = TextStyle(color = Color.Gray,
                             fontWeight = FontWeight.Normal,
@@ -131,8 +131,8 @@ fun FormAdd(navController: NavController,pageId:Int, pageAddViewModel: PageAddVi
                 }
 
                 PrimaryButton("Suivant",0){
-                    if(label.value != "" && souslabel.value != "" && img.value != ""){
-                        navController.navigate("addPlan/2/"+label.value+"/"+souslabel.value+"/"+img.value)
+                    if(label.value != "" && souslabel.value != "" && link.value != ""){
+                        navController.navigate("addPlan/2/"+label.value+"/"+link.value+"/"+souslabel.value)
                     }
                     else{
                         Toast.makeText(mContext,"Veuillez remplir tous les champs",Toast.LENGTH_LONG).show()
@@ -192,8 +192,8 @@ fun FormAdd(navController: NavController,pageId:Int, pageAddViewModel: PageAddVi
                 PrimaryButton("AJOUTER CE BON PLAN",0){
                     var newOffer = Offer()
                     newOffer.label = label.value
-                    newOffer.img = img.value
                     newOffer.souslabel = souslabel.value
+                    newOffer.link = link.value
                     offerService.create(newOffer)
                     navController.navigate("home")
                 }
