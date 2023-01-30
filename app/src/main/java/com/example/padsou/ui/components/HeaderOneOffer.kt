@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
@@ -18,7 +19,7 @@ import com.example.padsou.models.Offer
 import com.example.padsou.ui.theme.integralcf
 
 @Composable
-fun HeaderOneOffer(offer: Offer){
+fun HeaderOneOffer(offer: State<Offer>){
 
     Box(
         Modifier
@@ -27,7 +28,7 @@ fun HeaderOneOffer(offer: Offer){
 
     ){
         
-        AsyncImage(model = offer.img,
+        AsyncImage(model = offer.value.img,
             contentDescription = "image de fond",
             Modifier
                 .height(200.dp)
@@ -59,12 +60,12 @@ fun HeaderOneOffer(offer: Offer){
         Column(
             Modifier.padding(top = 60.dp,start=80.dp)
         ) {
-            Text(text = offer.label,Modifier, Color.White,
+            Text(text = offer.value.label,Modifier, Color.White,
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = integralcf
             )
-            Text(text = offer.souslabel,Modifier, Color.White,
+            Text(text = offer.value.souslabel,Modifier, Color.White,
                 fontSize = 15.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = integralcf)

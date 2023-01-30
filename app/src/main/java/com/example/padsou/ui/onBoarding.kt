@@ -114,9 +114,10 @@ Surface(
                     item {
                         OfferOnBoarding(
                             offer = Offer(
+                                "",
                                 "Abonnement 1 an",
                                 "2 mois offert",
-                                listOf<Comment>(),
+                                mutableListOf<Comment>(),
                                 666,
                                 "https://s3-alpha-sig.figma.com/img/a27a/ec98/8d39579645891972d626eef3f3b84891?Expires=1675641600&Signature=SEBTu0FSFAH57syQ6LC8RpAmqMbsDhwcNYKLA4CUnuCG9M~x6eteFM9XQaEWy7xrn5G6uWZ3bcT8zcr3XgzqmzaQ~udlOf7wCMvqsxCcTLfyYow8HKuAhBrncRz12pggmIBgevEgd7~pVlEj-z9oHUCObwBmBPVoS8IhUSrTirBjN9~kz36i8OQ6abOoW8oxtE4QbZYfGyRUHp7AHzCOWEzTSZhjC994E-plEcD~OmR6c0FXUjQIdp3e7g7pplEDo37t6rGBLei-DdDTPLs~-6H8L1yWGmccWS68vxK~zvrYXmuoJmV1T96aPI95uECQEGfdPXoTvPaRD2r-qe-5Uw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
                                 Filter.SPORT.toString(),
@@ -127,9 +128,10 @@ Surface(
                     item{
                         OfferOnBoarding(
                             offer = Offer(
+                                "",
                                 "Le grand barathon",
                                 "1 verre acheté = 1 offert",
-                                listOf<Comment>(),
+                                mutableListOf<Comment>(),
                                 666,
                                 "https://s3-alpha-sig.figma.com/img/0173/41ca/634e2da6e7136a26f43442e52e23007c?Expires=1675641600&Signature=UGYp1sWAklEQrOixDUA-EwIxdimseUOEfhsDvxDiYR22NinlJHqPpdqdEuXgLJWJt1qvpYzP1j4wlXNQ3UaObK7lqdnxXv4E1Pv0vdLedXAoYrVpE67sqBkbzHXl-TeDb~INKgo-9k07jKTKq0qp5e0GZqxu9-Bqo7h8PNaeEY~OxJKX-UNhIur7Je64PfFUW6-E2BFW7fA2DvNNUnCVYwZKjt~MhPoAs4VBN4r0ANziBXAJbd4aNQFbbjRwRP8hzybRcSuXu7k2nBm~2FJXuav1tHDCcMRHRTJP3HURmQtp3HXXWvM3kBURCUVaUce1KwAmTlGjJi8FAkjVKSS8lA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
                                 Filter.SOIRÉE.toString(),
@@ -140,9 +142,10 @@ Surface(
                     item{
                         OfferOnBoarding(
                             offer = Offer(
+                                "",
                                 "Garantie appart",
                                 "Pas besoin de garants",
-                                listOf<Comment>(),
+                                mutableListOf<Comment>(),
                                 666,
                                 "https://s3-alpha-sig.figma.com/img/af5f/d208/876c12a67cf3897f249e6c4c85bd3a17?Expires=1675641600&Signature=KeSWozzTEc19PxH0hxJIFbU7~BeJwX7vcYsOyYSwvdi2aQqkUwXs3uzrgbK0oPJYr7qSKpQaAy2I15WwtopMqn9PCAhOUKaEvisjf3mpB2cA8g1iI5FSPKBMW6yw~PYOaHwWH~j6CHg3CHK7Ql61qrTC8je2CPkHoOXyBzsADM3h4wF4hoQ0doyy6Xalt95WtYbchRsFKdTB5m4LdK4Kg2Bt6myW9EyAkMcxF3VThBtY2ONg85Femox~kvj0RT3CIA0GCd0IimY7w2E4slihR24pToPUXHCGtXh6JnSQU68sflu4k1it~ssVHw2rAodx1w~Xu60Z17jlk-NNh~81WA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
                                 Filter.COURSES.toString(),
@@ -153,9 +156,10 @@ Surface(
                     item{
                         OfferOnBoarding(
                             offer = Offer(
+                                "",
                                 "Giga MAXI Tacos",
                                 "5€99, dépêche toi !",
-                                listOf<Comment>(),
+                                mutableListOf<Comment>(),
                                 666,
                                 "https://s3-alpha-sig.figma.com/img/09be/26ca/2681806bece28616098b285a3fbdaa12?Expires=1675641600&Signature=EMhkoMuU2NqAT1kHX7KouemdwrHN0bkv5xxtdFXAnUWjy8g7wr79jv3vkajrVSkrqhIZ8y337dv2uYpahQm4Ijr5NjS3-bE3AgWxht-sj14U8~DWYHwJIiKcse9dJlmaEmjUVBytnyUQj2J~lyzfVDMhZByCFtQSbChdDbyPXVEGx~A2g3rQsZt78GENF-Av6eWq8CgAZ2g3rZeQ0NBX291zvySpE03IA9vRs7v3YMRsBYt0eqDnF1NOkQDXHgypVa6ZWA9fILVpxX2-dguI0Gn251lc6r-otDcpO9SN0BYdimiw8foSR0HKRvpveawH~fadoajhCe7zhhm5InioFg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
                                 Filter.SPORT.toString(),

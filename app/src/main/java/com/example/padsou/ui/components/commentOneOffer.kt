@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -47,7 +48,7 @@ fun commentOneOffer(comment : Comment){
                     Text(text = "Proposé par ",Modifier, Color.Black)
                     Text(text = comment.user.name,Modifier,Color.Black,fontWeight = FontWeight.Bold)
                 }
-                stars(comment.note)
+                stars(comment.note.toInt())
 
             }
 

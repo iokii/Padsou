@@ -17,6 +17,7 @@ class OfferService {
             .addOnSuccessListener { result ->
                 for (document in result){
                     offers.add(document.toObject())
+                    println(document.toString())
                 }
 
             }

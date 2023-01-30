@@ -1,7 +1,7 @@
 package com.example.padsou.models
 
 data class Comment(
-    val user: User,
-    val note : Int,
+    var user: User,
+    val note : Number,
     val desc : String
 )
