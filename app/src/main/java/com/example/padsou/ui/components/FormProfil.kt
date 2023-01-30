@@ -29,8 +29,10 @@ import com.google.firebase.ktx.Firebase
 fun FormProfil(navController: NavController){
     var profileViewModel = ProfileViewModel()
     var idUser = Firebase.auth.currentUser?.uid
-    if (idUser != null) {
-        profileViewModel.get(idUser)
+    LaunchedEffect(Unit) {
+        if (idUser != null) {
+            profileViewModel.get(idUser)
+        }
     }
     var user = profileViewModel.user.collectAsState()
     Log.d("TAG", "FormProfil: $user")
