@@ -1,7 +1,7 @@
 package com.example.padsou.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -12,21 +12,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.example.padsou.R
 import com.example.padsou.models.Offer
 import com.example.padsou.ui.theme.integralcf
-import okhttp3.internal.notify
 
 
 @Composable
-fun OfferInList(offer: Offer){
-    Column(modifier = Modifier.padding(bottom = 20.dp)){
+fun OfferInList(offer: Offer, navController: NavController, id: String){
+    Column(modifier = Modifier.padding(bottom = 20.dp).clickable { navController.navigate("oneOffer/UXSrnEdtpCV7cJdmsptk") }){
         Box(modifier = Modifier.padding(bottom = 10.dp)){
             AsyncImage(
                 model = offer.img,

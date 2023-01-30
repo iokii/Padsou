@@ -40,13 +40,17 @@ fun RegisterView(navController: NavController) {
         HeaderText("BIENVENUE 😎", "Inscris-toi pour avoir les \nmeilleurs plans étudiants !")
         FormRegister(registerViewModel)
         PrimaryButton("S'INSCRIRE", 20) {
-            accountService.createAccount(
+            var success = accountService.createAccount(
                 email.value,
                 password.value,
                 secondPassword.value,
-                mContext
+                mContext,
+                navController
             )
-            navController.navigate("home")
+            if(success){
+                navController.navigate("home")
+            }
+
         }
             Row(modifier = Modifier.padding(top = 50.dp)
                 .background(GrayWhite)

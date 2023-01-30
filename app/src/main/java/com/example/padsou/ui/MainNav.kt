@@ -19,8 +19,7 @@ fun MainNav(){
     NavHost(navController = navController, startDestination = "onBoarding"){
         composable("home"){
 
-            val offers : List<Offer> = offerservice.getAll()
-            HomePage(navController = navController, offers = offers)
+            HomePage(navController = navController)
 
         }
         composable("oneOffer/{offerId}"){
