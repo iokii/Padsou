@@ -132,7 +132,8 @@ fun FormAdd(navController: NavController,pageId:Int, pageAddViewModel: PageAddVi
 
                 PrimaryButton("Suivant",0){
                     if(label.value != "" && souslabel.value != "" && link.value != ""){
-                        navController.navigate("addPlan/2/"+label.value+"/"+link.value+"/"+souslabel.value)
+                        var newlink = link.value.split("/")[0]
+                        navController.navigate("addPlan/2/"+label.value+"/"+newlink+"/"+souslabel.value)
                     }
                     else{
                         Toast.makeText(mContext,"Veuillez remplir tous les champs",Toast.LENGTH_LONG).show()
