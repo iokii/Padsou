@@ -4,6 +4,7 @@ data class User (
     val name:String ="",
     val pdp : String="",
     val email : String="",
-    val password : String=""
-) 
+    val password : String="",
+    val uid_auth : String =""
+)
 
