@@ -4,7 +4,7 @@ data class Offer(
     var id:String = "",
     var label: String ="",
     var souslabel: String="",
-    var listComment: MutableList<Comment> = mutableListOf<Comment>(),
+    var listComment: MutableList<Commentaire> = mutableListOf<Commentaire>(),
     var nbrTested:Int = 0,
     var img: String="",
     var type: String = Filter.NULL.toString(),

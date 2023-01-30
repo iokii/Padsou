@@ -11,6 +11,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
@@ -26,18 +27,15 @@ import com.example.padsou.ui.theme.integralcf
 
 @Composable
 fun OneOffer (navController: NavController,offerId: String) {
-                // A surface container using the 'background' color from the theme
+    // A surface container using the 'background' color from the theme
 
+    var commentViewModel = CommentViewModel()
     val oneOfferViewModel = OneOfferViewModel()
     oneOfferViewModel.get(offerId)
     val offer: State<Offer> = oneOfferViewModel.offer.collectAsState()
 
-//
-//
-//    if (offer != null){
-//        Toast.makeText(LocalContext.current,"Erreur sur la récupération des datas", Toast.LENGTH_LONG).show()
-//        navController.navigate("home")
-//    }
+
+
 
     Surface(
         modifier = Modifier
@@ -46,27 +44,29 @@ fun OneOffer (navController: NavController,offerId: String) {
         color = Color(0xFFEBE7FF)
 
     ) {
-        Column() {
+        Column {
 
-                HeaderOneOffer(offer)
+            HeaderOneOffer(offer)
+
             for (comment in offer.value.listComment) {
-                commentOneOffer(comment)
+                commentOneOffer(comment,commentViewModel)
             }
 
-            Text("TESTÉE PAR ${offer.value.nbrTested} GALÉRIENS",
+            Text(
+                "TESTÉE PAR ${offer.value.nbrTested} GALÉRIENS",
                 Modifier.padding(top = 20.dp, start = 60.dp), Color.Black,
                 fontWeight = FontWeight.Bold,
                 fontFamily = integralcf,
-                fontSize = 20.sp)
+                fontSize = 20.sp
+            )
 
-            Box(modifier =Modifier.padding(top = 70.dp, start = 60.dp),){
-                PrimaryButton(text = "Profiter de l'offre", personnalisedPadding = 0){
+            Box(modifier = Modifier.padding(top = 70.dp, start = 60.dp),) {
+                PrimaryButton(text = "Profiter de l'offre", personnalisedPadding = 0) {
                     navController.navigate("offer")
                 }
             }
 
-            
-            
+
         }
 
 

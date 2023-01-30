@@ -40,15 +40,12 @@ class OneOfferViewModel : ViewModel() {
                     .get()
                     .addOnSuccessListener{documents ->
                         for (document in documents) {
-                            var comment :Comment  = document.toObject<Comment>()
-                            db.collection("").get()
-                                .addOnSuccessListener { user ->
-                                    //comment.user = user.toObject()!!
-                                }
+                            var precom = document.toObject<Commentaire>()
+                            var commentUser : User = User()
+                            _offer.value=dataOffer
+                            _offer.value.listComment.add(document.toObject())
 
 
-
-                            dataOffer.listComment.add(document.toObject<Comment>()!!)
                         }
 
 
@@ -56,7 +53,7 @@ class OneOfferViewModel : ViewModel() {
                     }
 
 
-                _offer.value=dataOffer
+
 
             }
             .addOnFailureListener { exception ->
