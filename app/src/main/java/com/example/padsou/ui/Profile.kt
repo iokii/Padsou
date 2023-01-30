@@ -11,6 +11,7 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,15 +25,21 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.padsou.models.User
 import coil.compose.AsyncImage
+import com.example.padsou.models.ProfileViewModel
 import com.example.padsou.models.service.UserService
 import com.example.padsou.ui.components.*
 import com.example.padsou.ui.theme.DarkBlue
 import com.example.padsou.ui.theme.GrayWhite
 import com.example.padsou.ui.theme.integralcf
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Composable
 
 fun Profile (navController: NavController) {
+
+
+
     Column() {
         HeaderProfil()
         Box(){
