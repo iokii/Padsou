@@ -3,6 +3,7 @@ package com.example.padsou.models.service
 import android.util.Log
 import com.example.padsou.models.Offer
 import com.example.padsou.models.User
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -14,14 +15,17 @@ class UserService {
 
     public fun get(id: String): User?{
         var user: User? = null
-        collection.document(id)
+        collection
+            .whereEqualTo("uid_auth", id)
             .get()
-            .addOnSuccessListener { result ->
-                user = result.toObject<User>()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    user = document.toObject()
+                }
             }
-            .addOnFailureListener { exception ->
-                Log.d("aaa", "Error getting documents: ", exception)
-            }
+        .addOnFailureListener { exception ->
+            Log.d("aaa", "Error getting documents: ", exception)
+        }
         return user
     }
 
@@ -50,9 +54,9 @@ class UserService {
             }
     }
 
-    public fun createFromAuth(email: String, password: String){
+    public fun createFromAuth(email: String, password: String, uid: String){
         var name = email.split("@")[0]
-        var user = User(name,"",email,password)
+        var user = User(name,"",email,password,uid)
         collection
             .add(user)
             .addOnSuccessListener { documentReference ->

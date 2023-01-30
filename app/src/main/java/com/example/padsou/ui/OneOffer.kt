@@ -2,6 +2,7 @@ package com.example.padsou.ui
 
 import android.os.Bundle
 import android.provider.ContactsContract.Data
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -29,9 +30,8 @@ import com.example.padsou.ui.theme.integralcf
 
 @Composable
 fun OneOffer (navController: NavController,offerId: String) {
-                // A surface container using the 'background' color from the theme
+    // A surface container using the 'background' color from the theme
     var offerService = OfferService()
-
 
     val Dataoffer: Offer? = offerService.get(offerId)
     var offer : Offer = Offer("","", listOf(),0,"",Filter.NULL.toString(),"")

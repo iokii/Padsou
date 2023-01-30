@@ -36,7 +36,7 @@ fun Profile (navController: NavController, userid: String) {
     val userService = UserService()
 
     val dataUser : User? = userService.get(userid)
-    var user : User  = User("","","","")
+    var user : User  = User("","","","","")
 
     if (dataUser != null)
     {

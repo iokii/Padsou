@@ -8,6 +8,8 @@ import com.example.padsou.models.Offer
 import com.example.padsou.models.service.OfferService
 import com.example.padsou.models.service.UserService
 import com.example.padsou.ui.components.LoginView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Composable
 fun MainNav(){
@@ -41,6 +43,14 @@ fun MainNav(){
         }
         composable("registerview") { RegisterView(navController) }
         composable("loginview") { LoginView(navController) }
-        composable("profil") { Profile(navController,"boop") }
+        composable("profil") {
+            var id = Firebase.auth.currentUser?.uid
+            if(id!=null){
+                Profile(navController,id)
+            }
+            else{
+                onBoarding(navController)
+            }
+        }
     }
 }
