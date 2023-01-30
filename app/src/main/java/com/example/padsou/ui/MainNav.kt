@@ -8,6 +8,8 @@ import com.example.padsou.models.Offer
 import com.example.padsou.models.service.OfferService
 import com.example.padsou.models.service.UserService
 import com.example.padsou.ui.components.LoginView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Composable
 fun MainNav(){
@@ -35,11 +37,30 @@ fun MainNav(){
             val pageId = navBackStackEntry.arguments?.getString("pageId")
 
             if (pageId != null) {
-                AddPlan(navController,pageId.toInt())
+                AddPlan(navController,pageId.toInt(),"","","")
+            }
+        }
+        composable("addPlan/{pageId}/{label}/{link}/{souslabel}"){navBackStackEntry  ->
+            val pageId = navBackStackEntry.arguments?.getString("pageId")
+            val label = navBackStackEntry.arguments?.getString("label")
+            val link = navBackStackEntry.arguments?.getString("link")
+            val souslabel = navBackStackEntry.arguments?.getString("souslabel")
+
+            if (pageId != null) {
+                if(label!=null && souslabel !=null && link!=null)
+                AddPlan(navController,pageId.toInt(),label,souslabel,link)
             }
         }
         composable("registerview") { RegisterView(navController) }
         composable("loginview") { LoginView(navController) }
-        composable("profil") { Profile(navController) }
+        composable("profil") {
+            var id = Firebase.auth.currentUser?.uid
+            if(id!=null){
+                Profile(navController,id)
+            }
+            else{
+                onBoarding(navController)
+            }
+        }
     }
 }

@@ -1,11 +1,12 @@
 package com.example.padsou.models
 
 data class Offer(
-    val id:String = "",
-    val label: String ="",
-    val souslabel: String="",
+    var id:String = "",
+    var label: String ="",
+    var souslabel: String="",
     var listComment: MutableList<Commentaire> = mutableListOf<Commentaire>(),
-    val nbrTested:Int = 0,
-    val img: String="",
-    val type: String = Filter.NULL.toString(),
-    val pdp : String = "")
+    var nbrTested:Int = 0,
+    var img: String="",
+    var link: String="",
+    var type: String = Filter.NULL.toString(),
+    var pdp : String = "")

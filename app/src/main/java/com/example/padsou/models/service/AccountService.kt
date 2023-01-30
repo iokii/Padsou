@@ -37,7 +37,7 @@ class AccountService {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("a", "createUserWithEmail:success")
-                    userService.createFromAuth(email, password)
+                    task.result.user?.let { userService.createFromAuth(email, password, it.uid) }
                     success = true
                     navController.navigate("home")
                 } else {

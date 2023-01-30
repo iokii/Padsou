@@ -1,5 +1,7 @@
 package com.example.padsou.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Box
@@ -33,6 +35,8 @@ fun OneOffer (navController: NavController,offerId: String) {
     val oneOfferViewModel = OneOfferViewModel()
     oneOfferViewModel.get(offerId)
     val offer: State<Offer> = oneOfferViewModel.offer.collectAsState()
+    val context = LocalContext.current
+
 
 
 
@@ -62,7 +66,12 @@ fun OneOffer (navController: NavController,offerId: String) {
 
             Box(modifier = Modifier.padding(top = 70.dp, start = 60.dp),) {
                 PrimaryButton(text = "Profiter de l'offre", personnalisedPadding = 0) {
-                    navController.navigate("offer")
+                    var webIntentUri = Uri.parse(offer.value.link)
+                    if (!offer.value.link.startsWith("http://") && !offer.value.link.startsWith("https://")) {
+                        webIntentUri = Uri.parse("http://" + offer.value.link);
+                    }
+                    var webIntent = Intent(Intent.ACTION_VIEW, webIntentUri)
+                    context.startActivity(webIntent)
                 }
             }
 
